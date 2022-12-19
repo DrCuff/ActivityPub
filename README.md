@@ -1,4 +1,11 @@
 # WebFinger
+
+TL;DR:  In the end I just used a simple apache redirect:
+
+```Redirect /.well-known/webfinger https://mast.hpc.social/.well-known/webfinger?resource=acct:drcuff@mast.hpc.social
+```
+
+
 Research on ActivityPub, starting with WebFinger, let's see if we can make a php script starting with the background.
 
 Taking the lead from Scott Hanselman's epic post here:
