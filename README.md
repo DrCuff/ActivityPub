@@ -122,7 +122,7 @@ If you are feeling fruity, there are lots of resources here on the webfinger and
 
 https://webfinger.net/code/
 
-Although in the spirit of this post, this one is my absolute fave from @aaronpk
+Although in the spirit of this post, this one is my absolute fave from [@aaronpk](https://github.com/aaronpk)
 
 https://gist.github.com/aaronpk/5846789
 
