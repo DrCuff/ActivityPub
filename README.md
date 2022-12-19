@@ -40,3 +40,16 @@ Note php must return: ```application/jrd+json```
 More details here from the comments on Scott's blog:
 
 https://blog.maartenballiauw.be/post/2022/11/05/mastodon-own-donain-without-hosting-server.html
+
+You can test this or any other tool with:  https://webfinger.net
+
+Mine is currently broken, which is good to test:
+
+Request Log
+
+```17:49:09 Looking up WebFinger data for acct:@james@cuff.social
+17:49:09 GET https://james%40cuff.social/.well-known/webfinger?resource=acct%3A%40james%40cuff.social
+17:49:09 Error getting JRD: parse https://james%40cuff.social/.well-known/webfinger?resource=acct%3A%40james%40cuff.social: invalid URL escape "%40"
+JSON Resource Descriptor (JRD)```
+
+
