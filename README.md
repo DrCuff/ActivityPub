@@ -43,18 +43,24 @@ https://blog.maartenballiauw.be/post/2022/11/05/mastodon-own-donain-without-host
 
 https://rpm.sh/custom-mastodon-domain/
 
-
-
 You can test this or any other tool with:  
 
 https://webfinger.net
 
 In the end I did a simple apache redirect that made it work as it was only me!
 
-```#send to mast.hpc.social
+```html
+<VirtualHost _default_:443>
+    ServerAdmin root@cuff.social
+    ServerName cuff.social
+#send to mast.hpc.social
     Redirect /.well-known/webfinger https://mast.hpc.social/.well-known/webfinger?resource=acct:drcuff@mast.hpc.social
+</VirtualHost>
 ```
-And it worked a treat:
+
+
+And it worked a treat via https://webfinger.net/lookup/?resource=james%40cuff.social which now goes to https://mast.hpc.social properly.
+
 
 ```Request Log
 
@@ -87,3 +93,19 @@ JSON Resource Descriptor (JRD)
 }
 ```
 
+There's a @james in the root that also forwards the site if anyone picks up the https://cuff.social/@james link, like twitter etc:
+
+```html
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Redirecting to https://mast.hpc.social/@drcuff</title>
+    <meta http-equiv="refresh" content="0; URL=https://mast.hpc.social/@drcuff">
+    <link href="https://github.com/drcuff" rel="me">
+    <link href="https://witnix.com/" rel="me">
+  </head>
+<body style="background-color:black;">
+   <a rel="me" href="https://mast.hpc.social/@DrCuff">Mastodon</a>
+</body>
+</html>
+```
