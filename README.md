@@ -41,15 +41,49 @@ More details here from the comments on Scott's blog:
 
 https://blog.maartenballiauw.be/post/2022/11/05/mastodon-own-donain-without-hosting-server.html
 
-You can test this or any other tool with:  https://webfinger.net
+https://rpm.sh/custom-mastodon-domain/
 
-Mine is currently broken, which is good to test:
 
-Request Log
 
-```17:49:09 Looking up WebFinger data for acct:@james@cuff.social
-17:49:09 GET https://james%40cuff.social/.well-known/webfinger?resource=acct%3A%40james%40cuff.social
-17:49:09 Error getting JRD: parse https://james%40cuff.social/.well-known/webfinger?resource=acct%3A%40james%40cuff.social: invalid URL escape "%40"
-JSON Resource Descriptor (JRD)```
+You can test this or any other tool with:  
 
+https://webfinger.net
+
+In the end I did a simple apache redirect that made it work as it was only me!
+
+```#send to mast.hpc.social
+    Redirect /.well-known/webfinger https://mast.hpc.social/.well-known/webfinger?resource=acct:drcuff@mast.hpc.social
+```
+And it worked a treat:
+
+```Request Log
+
+18:09:01 Looking up WebFinger data for acct:james@cuff.social
+18:09:01 GET https://cuff.social/.well-known/webfinger?resource=acct%3Ajames%40cuff.social
+JSON Resource Descriptor (JRD)
+
+{
+  "subject": "acct:DrCuff@mast.hpc.social",
+  "aliases": [
+    "https://mast.hpc.social/@DrCuff",
+    "https://mast.hpc.social/users/DrCuff"
+  ],
+  "links": [
+    {
+      "rel": "http://webfinger.net/rel/profile-page",
+      "type": "text/html",
+      "href": "https://mast.hpc.social/@DrCuff"
+    },
+    {
+      "rel": "self",
+      "type": "application/activity+json",
+      "href": "https://mast.hpc.social/users/DrCuff"
+    },
+    {
+      "rel": "http://ostatus.org/schema/1.0/subscribe",
+      "template": "https://mast.hpc.social/authorize_interaction?uri={uri}"
+    }
+  ]
+}
+```
 
