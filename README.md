@@ -1,9 +1,11 @@
-# ActivityPub
-Research on ActivityPub
+# WebFinger
+Research on ActivityPub, starting with WebFinger, let's see if we can make a php script starting with the background.
 
-Taking the lead from Scott Hasselman:
+Taking the lead from Scott Hanselman's epic post here:
 
 https://www.hanselman.com/blog/use-your-own-user-domain-for-mastodon-discoverability-with-the-webfinger-protocol-without-hosting-a-server
+
+First up, let's get our current "finger".
 
 ```% curl "https://mast.hpc.social/.well-known/webfinger?resource=acct:DrCuff@mast.hpc.social"```
 
@@ -11,11 +13,13 @@ https://www.hanselman.com/blog/use-your-own-user-domain-for-mastodon-discoverabi
 
 {
   "subject":"acct:DrCuff@mast.hpc.social",
-  "aliases":[
+  "aliases":
+  [
     "https://mast.hpc.social/@DrCuff",
     "https://mast.hpc.social/users/DrCuff"
-    ],
-  "links":[
+  ],
+  "links":
+  [
     {
       "rel":"http://webfinger.net/rel/profile-page",
       "type":"text/html","href":"https://mast.hpc.social/@DrCuff"},
@@ -29,5 +33,6 @@ https://www.hanselman.com/blog/use-your-own-user-domain-for-mastodon-discoverabi
     }
   ]
 }
-
 ```
+
+Note php must return: ```application/jrd+json```
