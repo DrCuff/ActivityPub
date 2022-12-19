@@ -117,3 +117,7 @@ There's a @james in the root that also forwards the site if anyone picks up the 
 </body>
 </html>
 ```
+
+If you are feeling fruity, there are lots of resources here on the webfinger and different ways to do it:
+
+https://webfinger.net/code/
