@@ -121,3 +121,34 @@ There's a @james in the root that also forwards the site if anyone picks up the 
 If you are feeling fruity, there are lots of resources here on the webfinger and different ways to do it:
 
 https://webfinger.net/code/
+
+Although in the spirit of this post, this one is my absolute fave from @aaronpk
+
+https://gist.github.com/aaronpk/5846789
+
+```
+[aaron@parecki.com www]$ cat .htaccess 
+RewriteEngine on
+RewriteCond %{QUERY_STRING} resource=acct:(.+)
+RewriteRule ^\.well-known/webfinger /profile/%1? [L]
+
+[aaron@parecki.com www]$ cat profile/aaron@parecki.com
+{
+  "subject": "acct:aaron@parecki.com",
+  "links": [
+    {
+      "rel": "http://webfinger.net/rel/avatar",
+      "href": "http://aaronparecki.com/images/aaronpk.png"
+    },
+    {
+      "rel": "http://webfinger.net/rel/profile-page",
+      "href": "http://aaronparecki.com/"
+    },
+    {
+      "rel": "me",
+      "href": "http://aaronparecki.com/"
+    }
+  ]
+}
+
+```
