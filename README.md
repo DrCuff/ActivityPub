@@ -2,7 +2,8 @@
 
 TL;DR:  In the end I just used a simple apache redirect:
 
-```Redirect /.well-known/webfinger https://mast.hpc.social/.well-known/webfinger?resource=acct:drcuff@mast.hpc.social
+```
+Redirect /.well-known/webfinger https://mast.hpc.social/.well-known/webfinger?resource=acct:drcuff@mast.hpc.social
 ```
 
 
