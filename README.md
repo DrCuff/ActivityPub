@@ -36,3 +36,7 @@ First up, let's get our current "finger".
 ```
 
 Note php must return: ```application/jrd+json```
+
+More details here from the comments on Scott's blog:
+
+https://blog.maartenballiauw.be/post/2022/11/05/mastodon-own-donain-without-hosting-server.html
